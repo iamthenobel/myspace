@@ -59,7 +59,7 @@ const ProfilePage = () => {
                 setUser({
                     ...res.data.user,
                     avatar: res.data.user.avatar
-                        ? `http://localhost:5000${res.data.user.avatar}`
+                        ? `https://myspace-e81p.onrender.com${res.data.user.avatar}`
                         : 'https://i.postimg.cc/cH2Q2ZNs/IMG-1170.png'
                 });
                 setIsLoading(false);

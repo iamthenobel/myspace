@@ -55,7 +55,7 @@ const LeftNav = ({ isCollapsed, toggleCollapse, setSidebarOpen }) => {
       setUser({
         name: res.data.user.name || "User",
         email: res.data.user.email || "",
-        avatar: res.data.user.avatar ? `http://localhost:5000${res.data.user.avatar}` : "",
+        avatar: res.data.user.avatar ? `https://myspace-e81p.onrender.com${res.data.user.avatar}` : "",
       });
     } catch (err) {
       localStorage.clear();
