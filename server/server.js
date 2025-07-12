@@ -9,11 +9,13 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const mime = require('mime-types');
 const { v4: uuidv4 } = require('uuid');
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const DB_PATH = './myspace.db';
-const JWT_SECRET = 'myspace_secret_key';
+
 const UPLOAD_DIR = './uploads';
 const TRASH_DIR = './trash';
 
@@ -2281,13 +2283,6 @@ app.put('/api/space/name', authenticateToken, (req, res) => {
   );
   console.log("Updating space for userId:", userId, "to:", trimmedName);
 
-});
-
-app.get('/api/messages', (req, res) => {
-    res.json([
-        { id: 1, sender: "Alice", preview: "Hey, check out this new folder!", unread: true, created_at: "2025-07-03T10:00:00Z" },
-        { id: 2, sender: "Bob", preview: "Meeting notes attached.", unread: false, created_at: "2025-07-02T15:30:00Z" }
-    ]);
 });
 
 // --- Error Handling Middleware ---
