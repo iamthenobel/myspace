@@ -19,7 +19,10 @@ const DB_PATH = './myspace.db';
 const UPLOAD_DIR = './uploads';
 const TRASH_DIR = './trash';
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://myspacely.netlify.app',
+  credentials: true
+}));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 app.use('/uploads', express.static(UPLOAD_DIR));
